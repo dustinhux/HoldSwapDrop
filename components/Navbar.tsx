@@ -41,9 +41,11 @@ const Navbar = () => {
           <Image
             src="/images/logo.png"
             alt="Logo"
-            width={250}
-            height={250}
+            width={0}
+            height={0}
+            sizes="auto"
             priority
+            style={{ height: '200%', width: 'auto' }}
           />
         </div>
 

@@ -10,7 +10,7 @@ const adImages = ['/ads/ad1.png', '/ads/ad2.png', '/ads/ad3.png'];
 
 export default function HomeWrapper() {
   return (
-    <Suspense fallback={<div className="text-center p-4">Loading trade calculator...</div>}>
+    <Suspense fallback={<div className="text-center p-4">Loading trade calculator</div>}>
       <Home />
     </Suspense>
   );
