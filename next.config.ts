@@ -6,6 +6,9 @@ const nextConfig = {
   output: 'export',
   basePath: isProd ? '/HoldSwapDrop' : '',
   assetPrefix: isProd ? '/HoldSwapDrop/' : '',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
