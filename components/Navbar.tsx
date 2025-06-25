@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const navItems = [
@@ -36,17 +35,13 @@ const Navbar = () => {
       style={{ backgroundColor: '#33b2ed' }}
     >
       <div className="relative max-w-7xl mx-auto flex items-center justify-center h-full">
-        {/* Logo absolutely positioned in top-left */}
-        <div className="absolute left-0 top-1 h-full flex items-center">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={0}
-            height={0}
-            sizes="auto"
-            priority
-            style={{ height: '200%', width: 'auto' }}
-          />
+        {/* Text Logo on Left */}
+        <div className="absolute left-0 h-full flex items-center pl-2">
+          <div className="text-2xl font-extrabold flex gap-1 leading-none">
+            <span className="text-white">Hold</span>
+            <span className="text-gray-800">Swap</span>
+            <span style={{ color: '#e95868' }}>Drop</span>
+          </div>
         </div>
 
         {/* Centered Desktop Menu */}
