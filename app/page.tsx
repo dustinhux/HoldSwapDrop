@@ -10,6 +10,8 @@ import { players } from '../data/players';
 
 const adImages = ['/ads/ad1.png', '/ads/ad2.png', '/ads/ad3.png'];
 
+
+
 export default function HomeWrapper() {
   return (
     <Suspense fallback={<div className="text-center p-4">Loading trade calculator</div>}>
@@ -318,11 +320,11 @@ function Home() {
       <div className="w-full bg-blue-100 flex justify-center items-center gap-6 py-2 text-sm border-t border-blue-200">
         <a href="https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles" target="_blank" rel="noopener noreferrer" className="hover:underline">About</a>
         <a href="https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles" target="_blank" rel="noopener noreferrer" className="hover:underline">FAQ</a>
-        <a href="https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles" target="_blank" rel="noopener noreferrer" className="hover:underline">Contact Us</a>
+        <a href="mailto:dustinrhux@gmail.com?subject=Trade%20Calculator%20Contact&body=Hi%20Dustin%2C" className="hover:underline">Contact Us</a>
       </div>
 
       <div className="w-full bg-gray-800 text-white flex justify-between items-center px-6 py-3 text-sm">
-        <span>© Dustin Hux 2025</span>
+        <span>© Hux Solutions 2025</span>
         <div className="flex gap-4">
           <a href="#" className="hover:underline">Terms & Conditions</a>
           <a href="#" className="hover:underline">Privacy Policy</a>
