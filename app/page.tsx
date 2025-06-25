@@ -1,3 +1,5 @@
+// Full updated file with arrow key navigation in search results
+
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
@@ -27,6 +29,8 @@ function Home() {
   const [search2, setSearch2] = useState('');
   const [showDropdown1, setShowDropdown1] = useState(false);
   const [showDropdown2, setShowDropdown2] = useState(false);
+  const [highlightedIndex1, setHighlightedIndex1] = useState(-1);
+  const [highlightedIndex2, setHighlightedIndex2] = useState(-1);
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [superflex, setSuperflex] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -107,6 +111,7 @@ function Home() {
       updateURL(updated, teamTwoPlayers, superflex);
       setSearch1('');
       setShowDropdown1(false);
+      setHighlightedIndex1(-1);
     }
     if (team === 'team2' && !teamTwoPlayers.includes(id)) {
       const updated = [...teamTwoPlayers, id];
@@ -114,6 +119,7 @@ function Home() {
       updateURL(teamOnePlayers, updated, superflex);
       setSearch2('');
       setShowDropdown2(false);
+      setHighlightedIndex2(-1);
     }
   };
 
@@ -233,9 +239,9 @@ function Home() {
                       const player = getPlayer(id);
                       return (
                         <li key={id} className="flex items-center justify-between border border-gray-300 p-2 rounded">
-                          <div className="font-bold underline w-1/3 truncate">{player?.name}</div>
-                          <div className="text-xs text-center w-1/3">{player?.position} | {player?.team}</div>
-                          <div className="text-blue-600 font-bold w-1/3 text-right">{Math.round(adjustedPlayers[id] || 0)}</div>
+                          <div className="font-bold underline w-1/2 truncate">{player?.name}</div>
+                          <div className="text-xs text-center w-1/4">{player?.position} | {player?.team}</div>
+                          <div className="text-blue-600 font-bold w-1/4 text-right">{Math.round(adjustedPlayers[id] || 0)}</div>
                           <button
                             onClick={() => removePlayer(id, _teamKey)}
                             className="ml-2 px-2 py-0.5 text-xs bg-red-500 text-white rounded"
@@ -309,13 +315,13 @@ function Home() {
         </div>
       </div>
 
-      <div className="w-full bg-blue-100 fixed bottom-11 left-0 flex justify-center items-center gap-6 py-2 text-sm border-t border-blue-200 z-50">
+      <div className="w-full bg-blue-100 flex justify-center items-center gap-6 py-2 text-sm border-t border-blue-200">
         <a href="https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles" target="_blank" rel="noopener noreferrer" className="hover:underline">About</a>
         <a href="https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles" target="_blank" rel="noopener noreferrer" className="hover:underline">FAQ</a>
         <a href="https://www.espn.com/nfl/game/_/gameId/401671889/chiefs-eagles" target="_blank" rel="noopener noreferrer" className="hover:underline">Contact Us</a>
       </div>
 
-      <div className="w-full bg-gray-800 text-white fixed bottom-0 left-0 flex justify-between items-center px-6 py-3 text-sm z-40">
+      <div className="w-full bg-gray-800 text-white flex justify-between items-center px-6 py-3 text-sm">
         <span>© Dustin Hux 2025</span>
         <div className="flex gap-4">
           <a href="#" className="hover:underline">Terms & Conditions</a>

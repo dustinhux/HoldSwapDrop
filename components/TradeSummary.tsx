@@ -36,7 +36,7 @@ export default function TradeSummary({ team1, team2, adjustedPlayers }: TradeSum
             <>
               <div className="flex justify-between items-center text-lg">
                 <span>
-                  <b>{team1.length}</b> total piece{team1.length === 1 ? '' : 's'}
+                  <b>{team1.length}</b> total piece{team1.length === 1 ? '' : 's'} to <b>Team 1</b>
                 </span>
                 <span className={`font-bold ${sliderColor} transition-colors duration-500`}>{Math.round(team1Total)}</span>
               </div>
@@ -50,7 +50,7 @@ export default function TradeSummary({ team1, team2, adjustedPlayers }: TradeSum
             <>
               <div className="flex justify-between md:justify-between items-center text-lg">
                 <span>
-                  <b>{team2.length}</b> total piece{team2.length === 1 ? '' : 's'}
+                  <b>{team2.length}</b> total piece{team2.length === 1 ? '' : 's'}  to <b>Team 2</b>
                 </span>
                 <span className={`font-bold ${sliderColor} transition-colors duration-500`}>{Math.round(team2Total)}</span>
               </div>
