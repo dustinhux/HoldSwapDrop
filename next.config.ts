@@ -1,14 +1,10 @@
-import type { NextConfig } from "next";
-
-const isProd = process.env.NODE_ENV === 'production';
-
+// next.config.ts
 const nextConfig = {
-  output: 'export',
-  basePath: isProd ? '/HoldSwapDrop' : '',
-  assetPrefix: isProd ? '/HoldSwapDrop/' : '',
+  reactStrictMode: true,
   images: {
-    unoptimized: true,
+    domains: [], // add allowed external domains for <Image> if needed
   },
+  // Do NOT include: output: 'export'
 };
 
 export default nextConfig;
