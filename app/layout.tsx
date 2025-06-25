@@ -19,9 +19,11 @@ export const metadata = {
   openGraph: {
     title: "HoldSwapDrop - Dynasty Trade Calculator",
     description: "Calculate fair dynasty trades with crowdsourced NFL player values.",
+    url: "https://hold-swap-drop.vercel.app",
+    type: "website",
     images: [
       {
-        url: "/og-image.png", // Place this image in the public/ folder
+        url: "https://hold-swap-drop.vercel.app/og-image.png",
         width: 1200,
         height: 630,
         alt: "HoldSwapDrop Trade Calculator",
@@ -32,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "HoldSwapDrop - Dynasty Trade Calculator",
     description: "Make smart dynasty trades with real user input.",
-    images: ["/og-image.png"],
+    images: ["https://hold-swap-drop.vercel.app/og-image.png"],
   },
 };
 
