@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev",
     "build": "next build",
+    "export": "next export",
+    "deploy": "npm run build && npm run export && gh-pages -d out",
     "start": "next start",
     "lint": "next lint",
     "generate:players": "ts-node scripts/generatePlayers.ts"
@@ -20,6 +22,7 @@
     "@types/node": "^20.19.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "gh-pages": "^6.3.0",
     "tailwindcss": "^4",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"

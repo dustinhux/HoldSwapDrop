@@ -1,14 +1,22 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Navbar from '../components/Navbar';
 import TradeSummary from '../components/TradeSummary';
 import { players } from '../data/players';
 
 const adImages = ['/ads/ad1.png', '/ads/ad2.png', '/ads/ad3.png'];
 
-export default function Home() {
+export default function HomeWrapper() {
+  return (
+    <Suspense fallback={<div className="text-center p-4">Loading trade calculator...</div>}>
+      <Home />
+    </Suspense>
+  );
+}
+
+function Home() {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -133,25 +141,20 @@ export default function Home() {
       <Navbar />
 
       <div className="p-4 pb-32">
-        <h1 className="text-2xl font-bold mb-4 text-center">NFL Dynasty Trade Calculator</h1>
-        <p className="text-sm text-center text-gray-600 mb-2">Crowdsourced market values updated 3 hours ago</p>
+        <h1 className="text-2xl font-bold mb-2 text-center">NFL Dynasty Trade Calculator</h1>
+        <p className="text-sm text-center text-gray-600 mb-4">Crowdsourced market values updated 3 hours ago</p>
 
         <div className="flex flex-col md:flex-row md:justify-between items-center md:items-start mb-4 gap-2">
-          {/* Info Box (mobile: centered, desktop: right-aligned) */}
           <div className="mb-4">
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
-
-              {/* Desktop only: Info box top-right */}
               <div className="w-full md:w-auto md:absolute md:right-15 md:top-[110px]">
-                <div className="bg-gray-100 rounded shadow p-2 text-sm max-w-xs text-center md:text-center animate-fade-in">
+              <div className="bg-gray-100 rounded shadow p-2 text-sm w-full max-w-lg md:max-w-xs text-center md:text-center animate-fade-in">
                   HSD's trade calculator uses crowdsourced values for players and picks from <span className="font-semibold">69,420,666</span> data points (and counting) provided by users like you.
                 </div>
               </div>
             </div>
           </div>
 
-
-          {/* Superflex Toggle */}
           <div className="md:hidden flex justify-center w-full">
             <div className="bg-white rounded shadow p-2 flex items-center gap-3 animate-fade-in">
               <label htmlFor="superflexToggle" className="font-semibold text-sm">Superflex</label>
@@ -172,75 +175,78 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {[['team1', teamOnePlayers, search1, setSearch1, showDropdown1, setShowDropdown1],
             ['team2', teamTwoPlayers, search2, setSearch2, showDropdown2, setShowDropdown2]].map(
-            ([teamKey, teamPlayers, search, setSearch, showDropdown, setShowDropdown], i) => (
-              <div key={teamKey as string} className="relative">
-                {i === 0 && (
-                  <div className="hidden md:block absolute -top-8 left-0">
-                    <div className="bg-white rounded shadow p-2 flex items-center gap-3 animate-fade-in">
-                      <label htmlFor="superflexToggle" className="font-semibold text-sm">Superflex</label>
-                      <button
-                        id="superflexToggle"
-                        onClick={toggleSuperflex}
-                        className={`w-16 h-8 flex items-center rounded-full px-1 transition-colors duration-300 ${superflex ? 'bg-blue-500' : 'bg-red-500'}`}
-                      >
-                        <div
-                          className={`bg-white w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${superflex ? 'translate-x-8' : 'translate-x-0'}`}
-                        />
-                      </button>
-                      <span className="text-sm font-medium">{superflex ? 'On' : 'Off'}</span>
-                    </div>
-                  </div>
-                )}
-                <h2 className="font-semibold mb-2 text-center">Team {i + 1} gets...</h2>
-                <input
-                  type="text"
-                  placeholder="Search players..."
-                  className="w-full p-2 mb-2 border rounded"
-                  value={search as string}
-                  onChange={(e) => {
-                    setSearch(e.target.value);
-                    setShowDropdown(true);
-                  }}
-                />
-                {showDropdown && (search as string) && (
-                  <ul className="border rounded shadow bg-white z-10 relative max-h-60 overflow-y-auto">
-                    {players
-                      .filter(p => p.name.toLowerCase().includes((search as string).toLowerCase()) &&
-                        !(teamPlayers as string[]).includes(p.id))
-                      .map(player => (
-                        <li
-                          key={player.id}
-                          className="cursor-pointer px-2 py-1 hover:bg-gray-100"
-                          onClick={() => addPlayer(player.id, teamKey as 'team1' | 'team2')}
-                        >
-                          {player.name}
-                        </li>
-                      ))}
-                  </ul>
-                )}
-                <ul className="mt-2 space-y-2 text-sm">
-                  {(teamPlayers as string[]).map(id => {
-                    const player = getPlayer(id);
-                    return (
-                      <li
-                        key={id}
-                        className="flex items-center justify-between border border-gray-300 p-2 rounded"
-                      >
-                        <div className="font-bold underline w-1/3 truncate">{player?.name}</div>
-                        <div className="text-xs text-center w-1/3">{player?.position} | {player?.team}</div>
-                        <div className="text-blue-600 font-bold w-1/3 text-right">{Math.round(adjustedPlayers[id] || 0)}</div>
+            ([teamKey, teamPlayers, search, setSearch, showDropdown, setShowDropdown], i) => {
+              const _teamKey = teamKey as 'team1' | 'team2';
+              const _teamPlayers = teamPlayers as string[];
+              const _search = search as string;
+              const _setSearch = setSearch as React.Dispatch<React.SetStateAction<string>>;
+              const _showDropdown = showDropdown as boolean;
+              const _setShowDropdown = setShowDropdown as React.Dispatch<React.SetStateAction<boolean>>;
+
+              return (
+                <div key={_teamKey} className="relative">
+                  {i === 0 && (
+                    <div className="hidden md:block absolute -top-8 left-0">
+                      <div className="bg-white rounded shadow p-2 flex items-center gap-3 animate-fade-in">
+                        <label htmlFor="superflexToggle" className="font-semibold text-sm">Superflex</label>
                         <button
-                          onClick={() => removePlayer(id, teamKey as 'team1' | 'team2')}
-                          className="ml-2 px-2 py-0.5 text-xs bg-red-500 text-white rounded"
+                          id="superflexToggle"
+                          onClick={toggleSuperflex}
+                          className={`w-16 h-8 flex items-center rounded-full px-1 transition-colors duration-300 ${superflex ? 'bg-blue-500' : 'bg-red-500'}`}
                         >
-                          ✕
+                          <div
+                            className={`bg-white w-5 h-5 rounded-full shadow-md transform transition-transform duration-300 ease-in-out ${superflex ? 'translate-x-8' : 'translate-x-0'}`}
+                          />
                         </button>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            )
+                        <span className="text-sm font-medium">{superflex ? 'On' : 'Off'}</span>
+                      </div>
+                    </div>
+                  )}
+                  <h2 className="font-semibold mb-2 text-center">Team {i + 1} gets...</h2>
+                  <input
+                    type="text"
+                    placeholder="Search players..."
+                    className="w-full p-2 mb-2 border rounded"
+                    value={_search}
+                    onChange={(e) => {
+                      _setSearch(e.target.value);
+                      _setShowDropdown(true);
+                    }}
+                  />
+                  {_showDropdown && _search && (
+                    <ul className="border rounded shadow bg-white z-10 relative max-h-60 overflow-y-auto">
+                      {players
+                        .filter(p => p.name.toLowerCase().includes(_search.toLowerCase()) && !_teamPlayers.includes(p.id))
+                        .map(player => (
+                          <li
+                            key={player.id}
+                            className="cursor-pointer px-2 py-1 hover:bg-gray-100"
+                            onClick={() => addPlayer(player.id, _teamKey)}
+                          >
+                            {player.name}
+                          </li>
+                        ))}
+                    </ul>
+                  )}
+                  <ul className="mt-2 space-y-2 text-sm">
+                    {_teamPlayers.map(id => {
+                      const player = getPlayer(id);
+                      return (
+                        <li key={id} className="flex items-center justify-between border border-gray-300 p-2 rounded">
+                          <div className="font-bold underline w-1/3 truncate">{player?.name}</div>
+                          <div className="text-xs text-center w-1/3">{player?.position} | {player?.team}</div>
+                          <div className="text-blue-600 font-bold w-1/3 text-right">{Math.round(adjustedPlayers[id] || 0)}</div>
+                          <button
+                            onClick={() => removePlayer(id, _teamKey)}
+                            className="ml-2 px-2 py-0.5 text-xs bg-red-500 text-white rounded"
+                          >✕</button>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            }
           )}
         </div>
 
