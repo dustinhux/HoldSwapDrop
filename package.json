@@ -2,11 +2,12 @@
   "name": "my-next-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dustinhux.github.io/HoldSwapDrop/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
-    "deploy": "npm run build && npm run export && gh-pages -d out",
+    "deploy": "npm run build && gh-pages -d out",
     "start": "next start",
     "lint": "next lint",
     "generate:players": "ts-node scripts/generatePlayers.ts"
