@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 // At the top of your app/page.tsx or app/layout.tsx
 export const metadata = {
   title: "HoldSwapDrop - Dynasty Trade Calculator",
+  icons: {
+    icon: "/favicon.ico",
+  },
   description: "Calculate fair dynasty trades with crowdsourced NFL player values.",
   openGraph: {
     title: "HoldSwapDrop - Dynasty Trade Calculator",
