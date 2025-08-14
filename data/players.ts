@@ -3407,5 +3407,237 @@ export const players = [
     "value": 8924,
     "position": "PICK",
     "team": ""
-  }
+  },
+  {
+    "id": "2025-early-2nd",
+    "name": "2025 Early 2nd",
+    "value": 8741,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-mid-2nd",
+    "name": "2025 Mid 2nd",
+    "value": 8520,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-late-2nd",
+    "name": "2025 Late 2nd",
+    "value": 8020,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-early-3rd",
+    "name": "2025 Early 3rd",
+    "value": 7700,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-mid-3rd",
+    "name": "2025 Mid 3rd",
+    "value": 7040,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-late-3rd",
+    "name": "2025 Late 3rd",
+    "value": 6580,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-early-1st",
+    "name": "2026 Early 1st",
+    "value": 8160,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-mid-1st",
+    "name": "2026 Mid 1st",
+    "value": 8001,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-late-1st",
+    "name": "2026 Late 1st",
+    "value": 7924,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-early-2nd",
+    "name": "2026 Early 2nd",
+    "value": 7741,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-mid-2nd",
+    "name": "2026 Mid 2nd",
+    "value": 7520,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-late-2nd",
+    "name": "2026 Late 2nd",
+    "value": 7020,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-early-3rd",
+    "name": "2026 Early 3rd",
+    "value": 6700,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-mid-3rd",
+    "name": "2026 Mid 3rd",
+    "value": 6040,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2026-late-3rd",
+    "name": "2026 Late 3rd",
+    "value": 5580,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-early-1st",
+    "name": "2027 Early 1st",
+    "value": 7160,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-mid-1st",
+    "name": "2027 Mid 1st",
+    "value": 7001,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-late-1st",
+    "name": "2027 Late 1st",
+    "value": 6924,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-early-2nd",
+    "name": "2027 Early 2nd",
+    "value": 6741,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-mid-2nd",
+    "name": "2027 Mid 2nd",
+    "value": 6520,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-late-2nd",
+    "name": "2027 Late 2nd",
+    "value": 6020,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-early-3rd",
+    "name": "2027 Early 3rd",
+    "value": 5700,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-mid-3rd",
+    "name": "2027 Mid 3rd",
+    "value": 5040,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2027-late-3rd",
+    "name": "2027 Late 3rd",
+    "value": 4580,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-early-1st",
+    "name": "2028 Early 1st",
+    "value": 6160,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-mid-1st",
+    "name": "2028 Mid 1st",
+    "value": 6001,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-late-1st",
+    "name": "2028 Late 1st",
+    "value": 5924,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-early-2nd",
+    "name": "2028 Early 2nd",
+    "value": 5741,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-mid-2nd",
+    "name": "2028 Mid 2nd",
+    "value": 5520,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-late-2nd",
+    "name": "2028 Late 2nd",
+    "value": 5020,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-early-3rd",
+    "name": "2028 Early 3rd",
+    "value": 4700,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-mid-3rd",
+    "name": "2028 Mid 3rd",
+    "value": 4040,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2028-late-3rd",
+    "name": "2028 Late 3rd",
+    "value": 3580,
+    "position": "PICK",
+    "team": ""
+  },
+  
 ] as const;
