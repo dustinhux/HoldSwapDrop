@@ -3386,5 +3386,26 @@ export const players = [
     "value": 320,
     "position": "TE73",
     "team": "CIN"
+  },
+  {
+    "id": "2025-early-1st",
+    "name": "2025 Early 1st",
+    "value": 9160,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-mid-1st",
+    "name": "2025 Mid 1st",
+    "value": 9001,
+    "position": "PICK",
+    "team": ""
+  },
+  {
+    "id": "2025-late-1st",
+    "name": "2025 Late 1st",
+    "value": 8924,
+    "position": "PICK",
+    "team": ""
   }
 ] as const;
