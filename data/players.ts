@@ -3639,5 +3639,12 @@ export const players = [
     "position": "PICK",
     "team": ""
   },
+  {
+    "id": "scotty-miller",
+    "name": "Scotty Miller",
+    "value": 1050,
+    "position": "WR166",
+    "team": "PIT"
+  },
   
 ] as const;
