@@ -3646,5 +3646,12 @@ export const players = [
     "position": "WR166",
     "team": "PIT"
   },
+  {
+    "id": "bag-of-chips",
+    "name": "Bag of Chips",
+    "value": 9040,
+    "position": "",
+    "team": ""
+  },
   
 ] as const;
